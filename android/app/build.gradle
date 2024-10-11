@@ -2,6 +2,7 @@ plugins {
     id "com.android.application"
     id "kotlin-android"
     id "dev.flutter.flutter-gradle-plugin"
+//    id 'com.google.gms.google-services'
 }
 
 def localProperties = new Properties()
@@ -35,12 +36,11 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "com.example.store_app"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdk = flutter.minSdkVersion
+        minSdk = 23
         targetSdk = flutter.targetSdkVersion
         versionCode = flutterVersionCode.toInteger()
         versionName = flutterVersionName
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -52,13 +52,15 @@ android {
     }
 }
 
-dependencies {
-
-    implementation 'com.android.volley:volley:1.2.1'
-}
-
-
 
 flutter {
     source = "../.."
 }
+
+
+dependencies {
+//    implementation platform('com.google.firebase:firebase-bom:33.4.0')
+//    implementation 'com.google.firebase:firebase-analytics'
+
+}
+
